@@ -4,7 +4,6 @@
     background-color: rgb(131, 241, 116);
     display: flex;
     flex-direction: row;
-    position: absolute;
 
 }
 .nav-title{

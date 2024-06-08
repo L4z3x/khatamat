@@ -1,0 +1,30 @@
+.sign-form-window{
+    align-self: center;
+    background-color: rgb(197, 212, 226);
+    border: 2px solid rgb(183, 200, 204);
+    border-radius: 10px ;
+    display: flex;
+    width: 420px;
+    height: 570px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+}
+select{
+    width:135px;
+    text-align: center;
+    font-weight: light;
+    padding-bottom: 5px;
+    height: 28px;
+    margin-left: 15px ;
+}
+.gender-div{
+    width: 300px;
+    margin-top: 20px;
+    display: flex;
+}
+.country-div{
+    width: 300px;
+    margin-top: 20px;
+    display: flex;
+}

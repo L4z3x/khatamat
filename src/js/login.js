@@ -1,16 +1,21 @@
-import './login.css'
-import React ,{ useEffect, useState } from 'react';
+import '../style/login.css'
+import React ,{ useState } from 'react';
+
+const changePath = ()=>{
+    let url = window.location.pathname
+    console.log(url)
+    if (url === '/'){
+        window.location.pathname = '/signup'
+    }
+}
 function Login(){
     const [Input,setInput] = useState({
         username: '',
         password: ''
     })
-
     const handleSubmit = (e) =>{
         e.preventDefault();
         console.log(Input)
-        
-
     }
     const handleChange = (e)=>{
         const { placeholder , value} = e.target
@@ -23,10 +28,12 @@ function Login(){
                 break;
         }
     }
+
+    
     return (
         <div className='background'>
-            <div className='form-window'>
-                <p className='form-title'>Welcome</p>
+            <div className='log-form-window'>
+                <p className='form-title'>Welcome to Khatamat</p>
                 <form onSubmit={handleSubmit}>
                     <input type='text' onChange={handleChange} className='input' placeholder='username'/>
                     <input type='password' onChange={handleChange} className='input1' placeholder='password'/>
@@ -34,10 +41,10 @@ function Login(){
                 </form>
                 <div className='other-option-div'>
                     <span className='go-to-signup'>
-                        don't have an account yet ? <a href=''>Sign in</a> {/*TODO: link to sign in form*/}
+                        don't have an account yet ? &nbsp;<strong onClick={changePath}>Sign up</strong> {/*TODO: link to sign in form*/}
                     </span>
                     <span>
-                        <a>Forget password ?</a> {/*TODO: link to change password using email */}
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Forgot password ?</strong> {/*TODO: link to change password using email */}
                     </span>
 
                 </div>

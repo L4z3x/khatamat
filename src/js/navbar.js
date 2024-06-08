@@ -1,5 +1,5 @@
 import React from 'react'
-import './navbar.css'
+import '../style/navbar.css'
 export default function Navbar(){
     return(
         <div className='backdiv'>
@@ -21,7 +21,7 @@ export default function Navbar(){
             <div className='nav-div profile'>
                 <h3>username</h3>  {/*TODO: User name goes here */}
                 <img className='profile-pic'
-                 src={ require('./Default-Profile-pic.jpg') } 
+                 src={ require('../img/Default-Profile-pic.jpg') } 
                  alt='profile-pic'/> {/*TODO: link to profiel page */}
             </div>
         </div>
