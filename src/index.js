@@ -5,6 +5,7 @@ import './style/index.css'
 import Login from './js/login'
 import Navbar from './js/navbar'
 import Signup from './js/singup'
+import Profile from './js/profile'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,8 +15,9 @@ root.render(
       <Router>
         <Navbar />
         <Routes>
-        <Route path='/signup' element={<Signup/>}/>
+          <Route path='/signup' element={<Signup/>}/>
           <Route path='/' element={<Login/>}/>  
+          <Route path='/profile' element={<Profile/>}/>
         </Routes>
           
       </Router>

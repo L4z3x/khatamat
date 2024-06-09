@@ -1,29 +1,31 @@
 import React from 'react'
 import '../style/navbar.css'
+import Profile from './profile'
 export default function Navbar(){
+const GoProfile = ()=>{window.location.href = '/profile'}
     return(
         <div className='backdiv'>
-            <div className='nav-title nav-div'>
-                <h1>Khatamat</h1>  {/*TODO: link to {loged} ? homepage : intropage*/}
-            </div>
-            <div className='nav-div'>
-                <h2>Home</h2>  {/*TODO: link to */}
-            </div>
-            <div className='nav-div'>
-                <h2>Dashboard</h2>  {/*TODO: link to */}
-            </div>
-            <div className='nav-div'>
-                <h2>Group</h2>  {/*TODO: link to */}
-            </div>
-            <div className='nav-div'>
-                <h2>Contact</h2>
-            </div>
-            <div className='nav-div profile'>
-                <h3>username</h3>  {/*TODO: User name goes here */}
-                <img className='profile-pic'
-                 src={ require('../img/Default-Profile-pic.jpg') } 
-                 alt='profile-pic'/> {/*TODO: link to profiel page */}
-            </div>
+            <ul className='ul-nav '>
+                <li className='li-nav'>
+                    <a className='li-nav'>Khatamat</a>
+                </li>
+                <li className='li-nav'>
+                    <a className='li-nav'>Home</a>
+                </li>
+                <li className='li-nav'>
+                    <a className='li-nav'>Contact</a>
+                </li>
+                <li className='li-nav'>
+                    <a className='li-nav'>About</a>
+                </li>
+                <li className='user1'>
+                    <div className='user'>
+                        <a>username</a>
+                        <img className='profile-pic' onClick={GoProfile} src={require('../img/Default-Profile-pic.jpg')}/>
+                    </div>
+                </li>
+            </ul>
         </div>
+            
     )
 }

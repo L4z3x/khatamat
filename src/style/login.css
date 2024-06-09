@@ -10,8 +10,8 @@
 }
 .log-form-window{
     align-self: center;
-    background-color: rgb(197, 212, 226);
-    border: 2px solid rgb(183, 200, 204);
+    background-color: rgba(51, 138, 51, 0.884);
+    border: 2px solid rgb(183, 200, 204,0.5);
     border-radius: 10px ;
     display: flex;
     width: 420px;
@@ -43,6 +43,7 @@ form{
     display: block;
     font-size: 25px;
     font-weight: bold;
+    color: aliceblue;
 }
 input{
     display: block;

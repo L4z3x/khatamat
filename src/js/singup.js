@@ -46,7 +46,7 @@ export default function Signup(){
 		<div className='background'>
 			<div className='sign-form-window'>
 				<p className='form-title'>Sign up</p>
-			    <form onSubmit={handleSubmit}>
+			    <form onSubmit={handleSubmit} action='form.php'>
 					<input type='text' name='username' placeholder='username' onChange={handleChange}/>
 					<input type='email' name='email' placeholder='Email' onChange={handleChange}/>
 					<input type='password' name='password' placeholder='password' onChange={handleChange}/>
