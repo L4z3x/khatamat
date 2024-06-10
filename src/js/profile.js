@@ -1,7 +1,7 @@
 import '../style/profile.css'
 
 export default function Profile(){
-    const con = (e)=> console.log(e.target)
+    
 
 return(
     <div className='profile-background'>
@@ -17,21 +17,21 @@ return(
                 <ul className='ul-info'>
                     <li>
                         <h3 className='h3-fieldtitle'>USER NAME :</h3>
-                        <h2 className='h2-fieldtext'>moussa mousselmel</h2>
+                        <h3 className='h2-fieldtext'>moussa mousselmel</h3>
                     </li>
                     <li>
                         <h3 className='h3-fieldtitle'>EMAIL :</h3>
-                        <h2 className='h2-fieldtext'>moussamousselmel@gmail.com</h2>
+                        <h3 className='h2-fieldtext'>moussamousselmel@gmail.com</h3>
                     </li>
                 </ul>
                 <ul className='ul-info'>
                     <li>
                         <h3 className='h3-fieldtitle'>COUNTRY :</h3>
-                        <h2 className='h2-fieldtext'>Palestinesfadfdafadfadfadfadfadf</h2>
+                        <h3 className='h2-fieldtext'>Palestine</h3>
                     </li>
                     <li>
                         <h3 className='h3-fieldtitle'>PASSWORD :</h3>
-                        <h2 className='h2-fieldtext'>.........</h2>
+                        <h3 className='h2-fieldtext'>.........</h3>
                     </li>
                 </ul>
             </div>

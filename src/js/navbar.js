@@ -1,6 +1,5 @@
 import React from 'react'
 import '../style/navbar.css'
-import Profile from './profile'
 export default function Navbar(){
 const GoProfile = ()=>{window.location.href = '/profile'}
     return(

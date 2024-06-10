@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router ,Route,Routes} from 'react-router-dom';  
+import { BrowserRouter as Router ,Route,Routes, Navigate} from 'react-router-dom';  
 import './style/index.css'
 import Login from './js/login'
 import Navbar from './js/navbar'
 import Signup from './js/singup'
 import Profile from './js/profile'
+import DashBoard from './js/dashboard'; 
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,8 +16,9 @@ root.render(
       <Router>
         <Navbar />
         <Routes>
-          <Route path='/signup' element={<Signup/>}/>
-          <Route path='/' element={<Login/>}/>  
+          <Route path='/dashboard' element={<DashBoard />}/>
+          <Route path='/signup' element={<Signup />}/>
+          <Route path={'/*'} element={<Login />}/>  
           <Route path='/profile' element={<Profile/>}/>
         </Routes>
           

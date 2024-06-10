@@ -9,7 +9,7 @@
     position: fixed;
     width: 100%;
     height: 70px;
-    background-color: rgb(131, 241, 116);
+    background-color: rgb(27, 168, 5);
     top: 0;
 }
 .li-nav{
@@ -34,7 +34,7 @@
     margin-top: 3px;
 }
 .li-nav:hover{
-    background-color:rgb(27, 168, 5) ;
+    background-color:rgb(100, 212, 86) ;
     cursor: pointer;
 }
 .profile-pic{
