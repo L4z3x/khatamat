@@ -15,7 +15,7 @@
 .li-nav{
     display:block;
     padding: 10px;
-    font-size: larger;
+    font-size: 25px;
     font-weight: 520;
     margin: 0px;
     float: left;
@@ -29,13 +29,14 @@
     float: right;
     display:block;
     padding: 10px;
-    font-size: larger;
-    font-weight: 520;
+    font-size: 20px;
+    font-weight: bold;
     margin-top: 3px;
 }
 .li-nav:hover{
     background-color:rgb(100, 212, 86) ;
     cursor: pointer;
+    color: aliceblue;
 }
 .profile-pic{
     width: 40px;

@@ -18,8 +18,9 @@ export default function Signup(){
 	gender:''
 	})
 	const handleSubmit = (e) =>{
-		e.preventDefault();
-		console.log(Input)
+		e.preventDefault();				// <--- TODO : add restriction to password and username length. 
+		console.log(Input)				// <--- TODO : comparision between password and confirmation.
+										// <--- TODO : prevent the browser from passing form data in the url query.
 	}
 	
 	const handleChange = (e)=>{
@@ -46,14 +47,14 @@ export default function Signup(){
 		<div className='background'>
 			<div className='sign-form-window'>
 				<p className='form-title'>Sign up</p>
-			    <form onSubmit={handleSubmit} action='form.php'>
-					<input type='text' name='username' placeholder='username' onChange={handleChange}/>
-					<input type='email' name='email' placeholder='Email' onChange={handleChange}/>
-					<input type='password' name='password' placeholder='password' onChange={handleChange}/>
-					<input type='password' name='password_con' placeholder='Confirm password' onChange={handleChange}/>
+			    <form onSubmit={handleSubmit}>
+					<input type='text' name='username' placeholder='username' onChange={handleChange} required/>
+					<input type='email' name='email' placeholder='Email' onChange={handleChange} required/>
+					<input type='password' name='password' placeholder='password' onChange={handleChange} required/>
+					<input type='password' name='password_con' placeholder='Confirm password' onChange={handleChange} required/>
 					<div className='country-div'>
 						<label>Select your country :</label>
-						<select name='country' onChange={handleChange} value={Input.country}>
+						<select name='country' onChange={handleChange} value={Input.country} required>
 							<option value="" disabled>country</option>
 							<option value="United States">United States</option>
 							<option value="Afghanistan">Afghanistan</option>
@@ -298,7 +299,7 @@ export default function Signup(){
 					</div>
 					<div className='gender-div'>
 						<label>Select your Gender :</label>
-						<select name='gender' onChange={handleChange} value={Input.gender}>
+						<select name='gender' onChange={handleChange} value={Input.gender} required>
 							<option value="" disabled>Gender</option>
 							<option value="male">Male</option>
 							<option value="female">female</option>

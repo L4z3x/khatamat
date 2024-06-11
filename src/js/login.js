@@ -35,8 +35,8 @@ function Login(){
             <div className='log-form-window'>
                 <p className='form-title'>Welcome to Khatamat</p>
                 <form onSubmit={handleSubmit}>
-                    <input type='text' onChange={handleChange} className='input' placeholder='username'/>
-                    <input type='password' onChange={handleChange} className='input1' placeholder='password'/>
+                    <input type='text' onChange={handleChange} className='input' placeholder='username' required/>
+                    <input type='password' onChange={handleChange} className='input1' placeholder='password' required/>
                     <button type='submit' className='form-submit-but'>Log in</button>
                 </form>
                 <div className='other-option-div'>
