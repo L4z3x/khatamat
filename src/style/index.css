@@ -13,5 +13,13 @@ code {
     monospace;
 }
 #root{
-  height: 100vh;
+  height: 100%;
+}
+@font-face {
+  font-family: 'cairo';
+  src: url('../fonts/Cairo/Cairo-VariableFont_slnt\,wght.ttf')format('woff2');
+} 
+@font-face {
+  font-family: 'kufam';
+  src: url('../fonts/Kufam/Kufam-VariableFont_wght.ttf') format('woff2');
 }

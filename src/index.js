@@ -8,6 +8,8 @@ import Signup from './js/singup'
 import Profile from './js/profile'
 import DashBoard from './js/dashboard'; 
 import reportWebVitals from './reportWebVitals';
+import About from './js/about';
+import Home from './js/home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,11 +19,13 @@ root.render(
         <Navbar />
         <Routes>
           <Route path='/dashboard' element={<DashBoard />}/>
+          <Route path='/home' element={
+          <><Home/>
+          <About /></>}/>
           <Route path='/signup' element={<Signup />}/>
           <Route path={'/*'} element={<Login />}/>  
           <Route path='/profile' element={<Profile/>}/>
         </Routes>
-          
       </Router>
     </React.StrictMode>
   

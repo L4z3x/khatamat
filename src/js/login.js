@@ -4,18 +4,44 @@ import React ,{ useState } from 'react';
 const changePath = ()=>{
     let url = window.location.pathname
     console.log(url)
-    if (url === '/'){
-        window.location.pathname = '/signup'
-    }
+    window.location.pathname = '/signup'
+
+    
 }
 function Login(){
-    const [Input,setInput] = useState({
+        const [Input,setInput] = useState({
         username: '',
         password: ''
     })
-    const handleSubmit = (e) =>{
+    async function SignupApi() {
+        try {
+            const response = await fetch("http://localhost:8000/api/", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                 body: JSON.stringify({
+                     'username': 'meriemaUpdated',
+                     'email': 'meriemaUpdated@home.com',
+                     'password': 'Updatedmeriema123'
+                 })
+            });
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+    
+    const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(Input)
+        SignupApi();
+        
     }
     const handleChange = (e)=>{
         const { placeholder , value} = e.target

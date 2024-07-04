@@ -13,21 +13,52 @@ export default function Signup(){
 	const [Input,setInput] = useState({
 	username:'',
 	password:'',
+	email:'',
 	password_con:'',
 	country:'',
 	gender:''
 	})
-	const handleSubmit = (e) =>{
-		e.preventDefault();				// <--- TODO : add restriction to password and username length. 
-		console.log(Input)				// <--- TODO : comparision between password and confirmation.
-										// <--- TODO : prevent the browser from passing form data in the url query.
-	}
+	async function SignupApi() {
+		try {
+			const response = await fetch("http://localhost:8000/api/", {
+				method: "POST",
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				 body: JSON.stringify({
+					 'username': Input.username,
+					 'email': Input.email,
+					 'password': Input.password,
+					 'gender': Input.gender,
+					 'country': Input.country,
+				 })
+			});
 	
+			/*if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}*/
+	
+			const data = await response.json();
+			console.log(data);
+		} catch (error) {
+			console.error('Error:', error);
+		}
+	}								// <--- TODO : prevent the browser from passing form data in the url query.
+
+	const handleSubmit = (e) =>{
+		e.preventDefault();		
+		console.log(Input)		// <--- TODO : add restriction to password and username length. 
+		SignupApi();                   // <--- TODO : comparision between password and confirmation.
+		
+	}
 	const handleChange = (e)=>{
 		const { name , value} = e.target
 		switch(e.target.name){ 
 			case 'username':
-				setInput(Input =>({...Input, [name]: value}))
+				setInput(Input =>({...Input, [name]: value}));
+				break;
+			case 'email':
+				setInput(Input =>({...Input, [name]: value}));
 				break;
 			case 'password':
 				setInput(Input => ({...Input, [name]: value}));
@@ -41,9 +72,11 @@ export default function Signup(){
 			case 'gender':
 				setInput(Input => ({...Input, [name]: value}));
 				break;
+			default:
+				break;
 			}
 	}
-	return(
+	return(					//   ### HTML ### 
 		<div className='background'>
 			<div className='sign-form-window'>
 				<p className='form-title'>Sign up</p>
@@ -302,7 +335,7 @@ export default function Signup(){
 						<select name='gender' onChange={handleChange} value={Input.gender} required>
 							<option value="" disabled>Gender</option>
 							<option value="male">Male</option>
-							<option value="female">female</option>
+							<option value="female">Female</option>
 						</select>
 					</div>
 					<button type='submit'  className='form-submit-but'>Sign up</button>

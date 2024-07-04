@@ -63,7 +63,7 @@
     background-color: rgb(155, 153, 153,0.5);
     overflow-wrap: break-word;
 }
-.info-div{
+.information-div{
     width: 784px;
     display: flex;
     flex-flow: row nowrap;

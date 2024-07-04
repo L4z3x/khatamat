@@ -1,4 +1,4 @@
-import React , { useEffect ,useState,useRef, createElement } from 'react';
+import React , { useEffect ,useState,useRef } from 'react';
 import '../style/dashboard.css'
 
 function DashBoard(){
@@ -65,12 +65,20 @@ function DashBoard(){
         console.log(part);
     },[part]);
 
-    const showInfoOnHover = (e,i)=>{               // <--- on click (info icon) : add the info.
+    const showInfoOnHover = (e,i)=>{                    // <--- on click (info icon) : add the info.
+        const curPart = partRefs.current[i];
         const info = partRefs.current[i].lastChild;
-       console.log(i+1);
+       console.log(info);
         if ( info.style.display === '') {
-            info.style.display = 'flex';          //TODO: when the info bar is overflowing  
-        }                                         //        adjust the position .  (very hard man bfffff)
+            info.style.display = 'flex';  
+            info.style.opacity = 1;
+            const container_bounding = curPart.parentNode.getBoundingClientRect();    
+            const info_bounding = info.getBoundingClientRect();
+            if (info_bounding.right > container_bounding.right) {
+                const overflow = info_bounding.right - container_bounding.right;
+                info.style.left = `-${overflow}px`
+            }                                        
+        }                                         
     }
 
     const handleMouseLeave = (e,i)=>{       // on mouse leave (info icon) : remove the info.
@@ -85,19 +93,20 @@ function DashBoard(){
             <div className='timer'>
                 <h1>Time Left:&nbsp;&nbsp;</h1><h1 className='time'>{clock}</h1>
             </div>
-            <div className='part-container'>
+            <div style={{flexDirection: "column"}}className='part-container'>
+                <h2 style={{fontFamily: "kufam",marginBottom: "0px"}}>اختر جزءا من القرآن و اتله قبل نهاية الوقت</h2>
                 <h2>pick parts from the quran and read it before the time ends</h2>
             </div>
             <div className='part-container'>
-                {Array.from({ length: 60 }, (_, i) => (                                 // <--- this part is from chatgpt 
-                    <div ref={el => partRefs.current[i] = el} key={i} className='part'  //    shhhh don't tell anyone okey ...
+                {Array.from({ length: 60 }, (_, i) => (                                 // <--- this part is from chatgpt i don't get the syntax yet ... 
+                    <div ref={el => partRefs.current[i] = el} key={i} className='part'  //           shhhh don't tell anyone okey ...
                     onClick={(e) => handlePartOnclick(e)}>
                         <div className='part-default'>
-                            <span className='span-part' onClick={(e) => handleSpanClick(e, i)}>Part {i + 1}</span>
+                            <span className='span-part' onClick={(e) => handleSpanClick(e, i)}>الحزب  {i + 1}</span>
                             <img onMouseOver={(e)=>showInfoOnHover(e,i)} onMouseLeave={(e)=>handleMouseLeave(e,i)}className='info-icon' src={require('../img/info.png')} 
                             alt='info-icon' />
                         </div> 
-                        <div className='info-div'><span className='info-span'>gdadadsada</span></div> 
+                        <div className='info-div'><span dir="rtl" lang='ar' className='info-span'>من &nbsp;سورة &nbsp;البقرة &nbsp;الآية &nbsp; 1&nbsp; إلى&nbsp; الآية&nbsp; 35&nbsp;</span></div> 
                     </div>                              // TODO: replace the text with the info variable.
                 ))}
             </div>

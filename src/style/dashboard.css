@@ -13,6 +13,7 @@
 .part-container{
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
     justify-content: space-around;
 }
 .part{
@@ -29,8 +30,12 @@
 .part-default{
     display: flex;
     justify-content: space-evenly;
-    align-items: end;
-    height: 70%;
+    align-items: center;
+    height: 85%;
+    font-family: cairo;
+}
+.span-part{
+    text-align: end;
 }
 .part:hover{
     opacity: 0.75;
@@ -58,7 +63,7 @@
     color: black;
     text-align: center;
     background-color: white;
-    width: 200px;
+    width: max-content;
     height: 50px;
     display: none;
     justify-content: center;
@@ -70,6 +75,8 @@
     left: 10px;
 }
 .info-span{
-    width: 100%;
+    width: fit-content;
     padding: 10px 10px;
+    font-size: 15px;
+    font-family: cairo;
 }

@@ -13,7 +13,7 @@ return(
             </div>
         </div>
         <div className='profile-information'>
-            <div className='info-div'>
+            <div className='information-div'>
                 <ul className='ul-info'>
                     <li>
                         <h3 className='h3-fieldtitle'>USER NAME :</h3>
@@ -35,7 +35,7 @@ return(
                     </li>
                 </ul>
             </div>
-            <div className='info-div'>
+            <div className='information-div'>
                 <ul className='ul-bio'>
                     <li>
                         <h3 className='h3-fieldtitle'>BIO :</h3>
