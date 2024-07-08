@@ -13,34 +13,28 @@ function Login(){
         username: '',
         password: ''
     })
-    async function SignupApi() {
+    async function LoginApi(){
         try {
-            const response = await fetch("http://localhost:8000/api/", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                 body: JSON.stringify({
-                     'username': 'meriemaUpdated',
-                     'email': 'meriemaUpdated@home.com',
-                     'password': 'Updatedmeriema123'
-                 })
-            });
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-    
-            const data = await response.json();
-            console.log(data);
+            const response = await fetch('http://localhost:8000/api/login/',{
+                method: 'POST',
+                headers:{"Content-Type":"application/json",},
+                body: JSON.stringify({
+                    username: Input.username,
+                    password: Input.password,
+                })})  
+            
+            const data = await response.json();  
+            console.log(data); 
+            localStorage.setItem('access',JSON.stringify(data.TOKEN.access))
+            localStorage.setItem('refrech',JSON.stringify(data.TOKEN.refrech))
         } catch (error) {
-            console.error('Error:', error);
+            console.log(error)
         }
     }
     
     const handleSubmit = (e)=>{
         e.preventDefault();
-        SignupApi();
+        LoginApi();
         
     }
     const handleChange = (e)=>{

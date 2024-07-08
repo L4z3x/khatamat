@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router ,Route,Routes, Navigate} from 'react-router-dom';  
+import { BrowserRouter as Router ,Route,Routes} from 'react-router-dom';  
 import './style/index.css'
 import Login from './js/login'
 import Navbar from './js/navbar'
@@ -10,6 +10,7 @@ import DashBoard from './js/dashboard';
 import reportWebVitals from './reportWebVitals';
 import About from './js/about';
 import Home from './js/home';
+import NotFound from './js/NotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,12 +20,19 @@ root.render(
         <Navbar />
         <Routes>
           <Route path='/dashboard' element={<DashBoard />}/>
+
           <Route path='/home' element={
           <><Home/>
-          <About /></>}/>
+          <About /></>}  />
+
           <Route path='/signup' element={<Signup />}/>
-          <Route path={'/*'} element={<Login />}/>  
+
+          <Route path={'/login'} element={<Login />}/>  
+
           <Route path='/profile' element={<Profile/>}/>
+
+          <Route path={'*'} element={<><Navbar /><NotFound /></>}/>
+
         </Routes>
       </Router>
     </React.StrictMode>
